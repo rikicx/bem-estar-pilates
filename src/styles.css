@@ -147,7 +147,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .footer-links a { text-underline-offset: 7px; }
 .site-footer > small { grid-column: 1 / -1; padding-top: 34px; color: #87909a; }
 
-.floating-cta { display: none; }
+.floating-cta { position: fixed; z-index: 90; right: 28px; bottom: max(28px, env(safe-area-inset-bottom)); width: 64px; height: 64px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; text-decoration: none; box-shadow: 0 16px 36px rgb(12 86 48 / .28); transition: transform .25s ease, box-shadow .25s ease; }
+.floating-cta:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 20px 42px rgb(12 86 48 / .36); }
+.floating-cta svg { width: 35px; height: 35px; fill: currentColor; }
+.floating-cta span { position: absolute; right: 76px; width: max-content; padding: 9px 13px; border-radius: 9px; background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; opacity: 0; transform: translateX(8px); pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+.floating-cta:hover span, .floating-cta:focus-visible span { opacity: 1; transform: translateX(0); }
 .reveal { opacity: 0; transform: translateY(46px); transition: opacity .85s ease, transform .85s cubic-bezier(.2,.75,.25,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -230,8 +234,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .site-footer { grid-template-columns: 1fr; padding-bottom: 104px; }
   .footer-links { flex-wrap: wrap; }
   .site-footer > small { grid-column: auto; }
-  .floating-cta { position: fixed; z-index: 90; left: 16px; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); min-height: 60px; border-radius: 999px; background: linear-gradient(110deg, var(--pink-dark), var(--pink)); color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700; box-shadow: 0 18px 40px rgb(164 37 96 / .3); }
-  .floating-cta svg { width: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .floating-cta { right: 18px; bottom: max(18px, env(safe-area-inset-bottom)); width: 58px; height: 58px; }
+  .floating-cta svg { width: 31px; height: 31px; }
+  .floating-cta span { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
